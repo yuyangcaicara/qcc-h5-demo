@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>高效获客路径测试 Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Urbanist:wght@600;700;800&family=Noto+Sans+SC:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="page-glow glow-left"></div>
+    <div class="page-glow glow-right"></div>
+    <main class="app-shell">
+      <section class="phone-frame">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">互动诊断 DEMO</p>
+            <h1>高效获客路径测试</h1>
+          </div>
+          <span class="topbar-tag">清爽版</span>
+        </div>
+
+        <section id="screen-intro" class="screen active">
+          <div class="hero-card reveal-up">
+            <span class="pill">经营诊断 · 30 秒完成</span>
+            <h2>测一测，你的企业当前更适合哪种增长打法？</h2>
+            <p>
+              回答 5 个问题，快速判断你更适合从哪条路径切入。完成后可查看基础结果，并扫码领取完整版建议。
+            </p>
+            <div class="chip-row">
+              <span>5 道测试题</span>
+              <span>1 页补充信息</span>
+              <span>3 类路径结果</span>
+            </div>
+            <button class="primary-btn" data-action="start">立即开始测试</button>
+          </div>
+
+          <div class="info-panel reveal-up delay-1">
+            <div class="mini-card">
+              <strong>适合谁来做？</strong>
+              <p>适合想提升线索量、转化效率的企业经营者或操盘团队。</p>
+            </div>
+            <div class="mini-card">
+              <strong>你将拿到什么？</strong>
+              <p>一份基础版结果说明，以及可继续领取的专属路径建议。</p>
+            </div>
+          </div>
+
+          <div class="footer-note">结果仅用于生成经营建议，请按实际情况选择。</div>
+        </section>
+
+        <section id="screen-quiz" class="screen">
+          <div class="progress-card reveal-up">
+            <div class="progress-meta">
+              <span id="progress-label">增长诊断 1 / 5</span>
+              <span id="progress-percent">20%</span>
+            </div>
+            <div class="progress-track">
+              <div id="progress-fill" class="progress-fill"></div>
+            </div>
+          </div>
+
+          <div class="question-card reveal-up delay-1">
+            <p class="question-helper">根据你的实际情况选择即可</p>
+            <h2 id="question-title">题目加载中…</h2>
+            <div id="question-options" class="options-grid"></div>
+          </div>
+        </section>
+
+        <section id="screen-info" class="screen">
+          <div class="hero-card compact reveal-up">
+            <span class="pill">补充经营信息</span>
+            <h2>再补充 2 项信息，让建议更贴合</h2>
+            <p>这些信息主要用于优化结果展示与后续建议匹配，不会影响你刚刚的测试节奏。</p>
+          </div>
+
+          <div class="question-card reveal-up delay-1">
+            <div class="info-block">
+              <p class="section-label">01 / 城市层级</p>
+              <h3>你的门店主要分布在哪类城市？</h3>
+              <div id="city-options" class="options-grid compact"></div>
+            </div>
+
+            <div class="info-block spaced">
+              <p class="section-label">02 / 门店规模</p>
+              <h3>当前门店规模更接近哪种情况？</h3>
+              <div id="store-options" class="options-grid compact"></div>
+            </div>
+
+            <button id="generate-result" class="primary-btn full">生成我的结果</button>
+            <p id="info-error" class="inline-error"></p>
+          </div>
+        </section>
+
+        <section id="screen-loading" class="screen">
+          <div class="loading-card reveal-up">
+            <div class="loading-ring"></div>
+            <span class="pill">路径分析中</span>
+            <h2>正在生成你的增长路径…</h2>
+            <p id="loading-text">正在匹配企业阶段与经营目标</p>
+          </div>
+        </section>
+
+        <section id="screen-result" class="screen">
+          <div class="result-hero reveal-up">
+            <div>
+              <p class="eyebrow">基础版结果</p>
+              <h2 id="result-type-title">你的增长类型：直接起量型</h2>
+            </div>
+            <div class="score-badge">
+              <span>路径匹配度</span>
+              <strong id="result-score">86</strong>
+            </div>
+          </div>
+
+          <div class="result-summary reveal-up delay-1">
+            <p id="result-summary-text"></p>
+            <div id="result-tags" class="chip-row result-tags"></div>
+          </div>
+
+          <div class="result-grid reveal-up delay-2">
+            <div class="result-card">
+              <p class="section-label">为什么适合你</p>
+              <ul id="trait-list" class="bullet-list"></ul>
+            </div>
+            <div class="result-card">
+              <p class="section-label">建议先做什么</p>
+              <ul id="action-list" class="bullet-list"></ul>
+            </div>
+          </div>
+
+          <div class="result-card highlight reveal-up delay-2">
+            <p class="section-label">结合你的经营信息</p>
+            <p id="result-personalized"></p>
+          </div>
+
+          <div class="qr-card reveal-up delay-3">
+            <div class="qr-copy">
+              <span class="pill">下一步动作</span>
+              <h3>你的测试结果是基础版</h3>
+              <p>
+                添加顾问并发送测试结果截图，可领取完整版建议、同类案例与下一步执行清单。
+              </p>
+              <ul class="benefit-list">
+                <li>专属路径建议</li>
+                <li>同类企业参考打法</li>
+                <li>下一步执行清单</li>
+              </ul>
+            </div>
+            <div class="qr-panel">
+              <div class="qr-placeholder">
+                <span>替换为顾问二维码</span>
+              </div>
+              <p>长按识别二维码，领取完整版</p>
+            </div>
+          </div>
+
+          <div class="result-actions reveal-up delay-3">
+            <button class="secondary-btn" data-action="restart">重新测试</button>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
