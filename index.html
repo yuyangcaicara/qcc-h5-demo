@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>微信找客户路径 Demo</title>
+    <title>高效获客路径测试 Demo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,45 +19,45 @@
       <section class="phone-frame">
         <div class="topbar">
           <div>
-            <p class="eyebrow">互动测试 DEMO</p>
-            <h1>微信找客户路径</h1>
+            <p class="eyebrow">互动诊断 DEMO</p>
+            <h1>高效获客路径测试</h1>
           </div>
-          <span class="topbar-tag">试稿版</span>
+          <span class="topbar-tag">清爽版</span>
         </div>
 
         <section id="screen-intro" class="screen active">
           <div class="hero-card reveal-up">
-            <span class="pill">3 种路子 · 约 1 分钟</span>
-            <h2>原来在微信找客户，还能这么做</h2>
+            <span class="pill">经营诊断 · 30 秒完成</span>
+            <h2>测一测，你的企业当前更适合哪种增长打法？</h2>
             <p>
-              我们整理了 3 种微信找客户路子。答几个问题，看看你现阶段更适合先走哪一种。
+              回答 5 个问题，快速判断你更适合从哪条路径切入。完成后可查看基础结果，并扫码领取完整版建议。
             </p>
             <div class="chip-row">
-              <span>4 道判断题</span>
-              <span>1-2 道经营题</span>
-              <span>直接出结果</span>
+              <span>5 道测试题</span>
+              <span>1 页补充信息</span>
+              <span>3 类路径结果</span>
             </div>
-            <button class="primary-btn" data-action="start">开始看看</button>
+            <button class="primary-btn" data-action="start">立即开始测试</button>
           </div>
 
           <div class="info-panel reveal-up delay-1">
             <div class="mini-card">
-              <strong>会看到什么？</strong>
-              <p>更适合先直接起量、借助团队推进，还是先把内容和经营基础做起来。</p>
+              <strong>适合谁来做？</strong>
+              <p>适合想提升线索量、转化效率的企业经营者或操盘团队。</p>
             </div>
             <div class="mini-card">
-              <strong>结果怎么用？</strong>
-              <p>做完可先看基础判断，再扫码领取对应方案说明和后续建议。</p>
+              <strong>你将拿到什么？</strong>
+              <p>一份基础版结果说明，以及可继续领取的专属路径建议。</p>
             </div>
           </div>
 
-          <div class="footer-note">结果仅用于生成建议，请按实际情况选择。</div>
+          <div class="footer-note">结果仅用于生成经营建议，请按实际情况选择。</div>
         </section>
 
         <section id="screen-quiz" class="screen">
           <div class="progress-card reveal-up">
             <div class="progress-meta">
-              <span id="progress-label">路径判断 1 / 5</span>
+              <span id="progress-label">增长诊断 1 / 5</span>
               <span id="progress-percent">20%</span>
             </div>
             <div class="progress-track">
@@ -66,18 +66,43 @@
           </div>
 
           <div class="question-card reveal-up delay-1">
-            <p class="question-helper">按现在更接近的情况选即可</p>
+            <p class="question-helper">根据你的实际情况选择即可</p>
             <h2 id="question-title">题目加载中…</h2>
             <div id="question-options" class="options-grid"></div>
+          </div>
+        </section>
+
+        <section id="screen-info" class="screen">
+          <div class="hero-card compact reveal-up">
+            <span class="pill">补充经营信息</span>
+            <h2>再补充 2 项信息，让建议更贴合</h2>
+            <p>这些信息主要用于优化结果展示与后续建议匹配，不会影响你刚刚的测试节奏。</p>
+          </div>
+
+          <div class="question-card reveal-up delay-1">
+            <div class="info-block">
+              <p class="section-label">01 / 城市层级</p>
+              <h3>你的门店主要分布在哪类城市？</h3>
+              <div id="city-options" class="options-grid compact"></div>
+            </div>
+
+            <div class="info-block spaced">
+              <p class="section-label">02 / 门店规模</p>
+              <h3>当前门店规模更接近哪种情况？</h3>
+              <div id="store-options" class="options-grid compact"></div>
+            </div>
+
+            <button id="generate-result" class="primary-btn full">生成我的结果</button>
+            <p id="info-error" class="inline-error"></p>
           </div>
         </section>
 
         <section id="screen-loading" class="screen">
           <div class="loading-card reveal-up">
             <div class="loading-ring"></div>
-            <span class="pill">路径匹配中</span>
-            <h2>正在生成你的基础结果…</h2>
-            <p id="loading-text">正在匹配更适合你的找客路子</p>
+            <span class="pill">路径分析中</span>
+            <h2>正在生成你的增长路径…</h2>
+            <p id="loading-text">正在匹配企业阶段与经营目标</p>
           </div>
         </section>
 
@@ -85,10 +110,10 @@
           <div class="result-hero reveal-up">
             <div>
               <p class="eyebrow">基础版结果</p>
-              <h2 id="result-type-title">你现阶段更适合：先直接把找客户这件事跑起来</h2>
+              <h2 id="result-type-title">你的增长类型：直接起量型</h2>
             </div>
             <div class="score-badge">
-              <span>匹配度</span>
+              <span>路径匹配度</span>
               <strong id="result-score">86</strong>
             </div>
           </div>
@@ -100,31 +125,31 @@
 
           <div class="result-grid reveal-up delay-2">
             <div class="result-card">
-              <p class="section-label">为什么更适合你</p>
+              <p class="section-label">为什么适合你</p>
               <ul id="trait-list" class="bullet-list"></ul>
             </div>
             <div class="result-card">
-              <p class="section-label">可以先怎么开始</p>
+              <p class="section-label">建议先做什么</p>
               <ul id="action-list" class="bullet-list"></ul>
             </div>
           </div>
 
           <div class="result-card highlight reveal-up delay-2">
-            <p class="section-label">结合你的生意情况</p>
+            <p class="section-label">结合你的经营信息</p>
             <p id="result-personalized"></p>
           </div>
 
           <div class="qr-card reveal-up delay-3">
             <div class="qr-copy">
               <span class="pill">下一步动作</span>
-              <h3>你的结果是基础版</h3>
+              <h3>你的测试结果是基础版</h3>
               <p>
-                添加顾问并发送测试结果截图，可领取对应方案说明、同类参考案例和下一步建议。
+                添加顾问并发送测试结果截图，可领取完整版建议、同类案例与下一步执行清单。
               </p>
               <ul class="benefit-list">
-                <li>对应方案说明</li>
-                <li>同类案例参考</li>
-                <li>下一步建议清单</li>
+                <li>专属路径建议</li>
+                <li>同类企业参考打法</li>
+                <li>下一步执行清单</li>
               </ul>
             </div>
             <div class="qr-panel">
